@@ -17,9 +17,9 @@ def decode_flags(flags):
 	NO_PROPAGATE_INHERIT_ACE:"NO_PROPAGATE_INHERIT_ACE",
 	INHERITED_ACE:"INHERITED_ACE"
 		}
-			for key in _flags.keys():
-				if (flags & key):
-					print '\t','\t',_flags[key],"is set!"
+	for key in _flags.keys():
+		if (flags & key):
+			print '\t','\t',_flags[key],"is set!"
 
 
 fileList = []
