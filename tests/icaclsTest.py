@@ -6,4 +6,16 @@ sys.path.append('../src')
 import icaclsForWin as ifw
 
 ifw.scanFile('.')
-print(ifw.get_path_permission)
+path = ifw.get_path_permission
+print(path)
+
+'''
+def getAllPathAndPermission(path):
+	
+	# 获得每一层的路径
+	each_layer_path = list(path.keys())
+	for key_index in range(len(each_layer_path)):
+		if
+'''
+
+
