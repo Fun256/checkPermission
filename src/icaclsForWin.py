@@ -12,6 +12,10 @@ def scanFile(rootPath):
 	for list in os.listdir(rootPath):
 		path = os.path.join(rootPath, list)
 		checkPermission(path)
+		#如果当前路径为文件，则继续递归
+		if os.path.isdir(path):
+			scanFile(path)
+
 
 get_path_permission = {}
 def checkPermission(path):
