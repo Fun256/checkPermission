@@ -3,7 +3,7 @@
 import sys
 sys.path.append('../src')
 
-import checkPermission' 'forwin as SF
+import checkPermissionForWin as SF
 
 SF.scanFile('.')
 
