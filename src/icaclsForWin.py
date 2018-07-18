@@ -44,8 +44,8 @@ def checkPermission(root):
 	file_info[0] = tmp
 	for user_index in range(len(file_info)-2):
 		get_path_permission[path][file_info[user_index].split(':')[0]] = file_info[user_index].split(':')[1]
-		logging.info('user: '{}.format(get_path_permission[path][file_info[user_index].split(':')[0]]),\
-					 ', permission: '{}.format(file_info[user_index].split(':')[1]))
+		logging.info('user: {}'.format(get_path_permission[path][file_info[user_index].split(':')[0]]),\
+					 ', permission: {}'.format(file_info[user_index].split(':')[1]))
 
 
 
