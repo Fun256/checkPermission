@@ -18,7 +18,7 @@ def scanFile(rootPath):
 	for list in os.listdir(rootPath):
 		path = os.path.join(rootPath, list)
 		abs_path = os.path.abspath(path)
-		logging.info('path: %s' %format(abs_path))
+		logging.info('path: %s' %(abs_path))
 		checkPermission(path)
 		#如果当前路径为文件，则继续递归
 		if os.path.isdir(path):
@@ -40,9 +40,13 @@ def checkPermission(root):
 		已顺利处理...
 	'''
 	# 每个用户都有一个权限, 此处，只为一个Administrators & 一个 admin
-	path = file_info[0].split(' ')[0]
+	first_record = file_info[0].split(' ')
+	path = first_record[0]
 	get_path_permission[path] = {}
-	tmp = file_info[0].split(' ')[2]
+	if len(first_record) == 2:
+		tmp = first_record[1]
+	else:
+		tmp = first_record[2]
 	file_info[0] = tmp
 	for user_index in range(len(file_info)-2):
 		get_path_permission[path][file_info[user_index].split(':')[0]] = file_info[user_index].split(':')[1]
