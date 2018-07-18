@@ -17,6 +17,7 @@ logging.basicConfig(filename='log_icacls.txt', level=logging.DEBUG)
 def scanFile(rootPath):
 	for list in os.listdir(rootPath):
 		path = os.path.join(rootPath, list)
+		logging.info('path: {}'.format(path))
 		checkPermission(path)
 		#如果当前路径为文件，则继续递归
 		if os.path.isdir(path):
@@ -44,7 +45,7 @@ def checkPermission(root):
 	file_info[0] = tmp
 	for user_index in range(len(file_info)-2):
 		get_path_permission[path][file_info[user_index].split(':')[0]] = file_info[user_index].split(':')[1]
-		logging.info('user: {}'.format(get_path_permission[path][file_info[user_index].split(':')[0]]),\
+		logging.info('	user: {}'.format(file_info[user_index].split(':')[0]),\
 					 ', permission: {}'.format(file_info[user_index].split(':')[1]))
 
 
