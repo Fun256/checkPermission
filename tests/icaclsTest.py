@@ -5,8 +5,11 @@ sys.path.append('../src')
 
 import icaclsForWin as ifw
 
-ifw.scanFile('.')
-path = ifw.get_path_permission
+
+def scan(path):
+	ifw.scanFile(path)
+#ifw.scanFile('.')
+#path = ifw.get_path_permission
 #print(path)
 
 '''
