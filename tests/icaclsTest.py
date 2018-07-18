@@ -7,7 +7,7 @@ import icaclsForWin as ifw
 
 ifw.scanFile('.')
 path = ifw.get_path_permission
-print(path)
+#print(path)
 
 '''
 def getAllPathAndPermission(path):
