@@ -57,7 +57,7 @@ def checkPermission(root):
 	removed_space = first_record.split(' ')
 	get_path_permission[root] = {}
 	if len(removed_space) == 1:
-		temp = remove_space[0]
+		temp = removed_space[0]
 	else:
 		temp = removed_space[1]
 	file_info[0] = temp
