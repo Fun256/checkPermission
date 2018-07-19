@@ -21,12 +21,13 @@ def scanFile(rootPath):
 		path = os.path.join(rootPath, list)
 		abs_path = os.path.abspath(path)
 		logging.info('path: %s' %(abs_path))
-		remove_space(path)
+		#remove_space(path)
 		checkPermission(path)
 		#如果当前路径为文件，则继续递归
 		if os.path.isdir(path):
 			scanFile(path)
 #logging.info('we totally scaned %d files' %total_num)
+
 
 def remove_space(path):
 	if ' ' in path:
@@ -54,13 +55,13 @@ def checkPermission(root):
 		space:
 			c:\\Program File
 	'''
-	first_record = file_info[0].split(' ')
-	path = first_record[0]
-	get_path_permission[path] = {}
-	if len(first_record) == 2:
-		tmp = first_record[1]
+	first_record = file_info[0].lstrip(root)
+	remove_space = first_record.split(' ')
+	get_path_permission[root] = {}
+	if len(remove_space) == 1:
+		tmp = first_record[0]
 	else:
-		tmp = first_record[2]
+		tmp = first_record[1]
 	file_info[0] = tmp
 	for user_index in range(len(file_info)-2):
 		get_path_permission[path][file_info[user_index].split(':')[0]] = file_info[user_index].split(':')[1]
