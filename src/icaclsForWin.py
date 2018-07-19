@@ -51,11 +51,9 @@ def checkPermission(root):
 		admin-PC\\admin:(I)(OI)(CI)(F)\n
 		\n
 		已顺利处理...
-		
-		space:
-			c:\\Program File
+
 	'''
-	first_record = file_info[0].lstrip(root)
+	first_record = file_info[0].lstrip(root + ' ')
 	remove_space = first_record.split(' ')
 	get_path_permission[root] = {}
 	if len(remove_space) == 1:
