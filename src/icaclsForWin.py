@@ -21,11 +21,17 @@ def scanFile(rootPath):
 		path = os.path.join(rootPath, list)
 		abs_path = os.path.abspath(path)
 		logging.info('path: %s' %(abs_path))
+		remove_space(path)
 		checkPermission(path)
 		#如果当前路径为文件，则继续递归
 		if os.path.isdir(path):
 			scanFile(path)
 #logging.info('we totally scaned %d files' %total_num)
+
+def remove_space(path):
+	if ' ' in path:
+		new_path = path.replace(' ', '_')
+		os.rename(path, new_path)
 
 
 get_path_permission = {}
@@ -44,8 +50,10 @@ def checkPermission(root):
 		admin-PC\\admin:(I)(OI)(CI)(F)\n
 		\n
 		已顺利处理...
+		
+		space:
+			c:\\Program File
 	'''
-	# 每个用户都有一个权限, 此处，只为一个Administrators & 一个 admin
 	first_record = file_info[0].split(' ')
 	path = first_record[0]
 	get_path_permission[path] = {}
