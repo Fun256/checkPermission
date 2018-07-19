@@ -57,10 +57,10 @@ def checkPermission(root):
 	remove_space = first_record.split(' ')
 	get_path_permission[root] = {}
 	if len(remove_space) == 1:
-		tmp = first_record[0]
+		temp = first_record[0]
 	else:
-		tmp = first_record[1]
-	file_info[0] = tmp
+		temp = first_record[1]
+	file_info[0] = temp
 	for user_index in range(len(file_info)-2):
 		get_path_permission[path][file_info[user_index].split(':')[0]] = file_info[user_index].split(':')[1]
 		logging.info('		user: %s, permission: %s' %(file_info[user_index].split(':')[0].strip(' '),\
