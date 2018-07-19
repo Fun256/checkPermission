@@ -23,10 +23,14 @@ def scanFile(rootPath):
 		#如果当前路径为文件，则继续递归
 		if os.path.isdir(path):
 			scanFile(path)
+	logging.info('we totally scaned %d files' %total_num)
 
+total_num = 0
 
 get_path_permission = {}
 def checkPermission(root):
+	total_num += 1
+	
 	cmd = 'icacls ' + root
 	# 用于获得windows下文件的权限信息
 	temp = os.popen(cmd)
