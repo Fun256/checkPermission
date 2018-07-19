@@ -30,6 +30,7 @@ def scanFile(rootPath):
 
 get_path_permission = {}
 def checkPermission(root):
+	global total_num
 	total_num += 1
 	
 	cmd = 'icacls ' + root
