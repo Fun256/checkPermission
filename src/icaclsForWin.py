@@ -14,6 +14,8 @@ logging.basicConfig(filename='log_icacls.log', level=logging.DEBUG)
 	logging.warning(...)
 '''
 
+total_num = 0
+
 def scanFile(rootPath):
 	for list in os.listdir(rootPath):
 		path = os.path.join(rootPath, list)
@@ -25,7 +27,6 @@ def scanFile(rootPath):
 			scanFile(path)
 	logging.info('we totally scaned %d files' %total_num)
 
-total_num = 0
 
 get_path_permission = {}
 def checkPermission(root):
