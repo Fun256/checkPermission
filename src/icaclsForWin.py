@@ -14,7 +14,7 @@ logging.basicConfig(filename='log_icacls.log', level=logging.DEBUG)
 	logging.warning(...)
 '''
 
-total_num = 0
+#total_num = 0
 
 def scanFile(rootPath):
 	for list in os.listdir(rootPath):
@@ -25,13 +25,13 @@ def scanFile(rootPath):
 		#如果当前路径为文件，则继续递归
 		if os.path.isdir(path):
 			scanFile(path)
-	logging.info('we totally scaned %d files' %total_num)
+#logging.info('we totally scaned %d files' %total_num)
 
 
 get_path_permission = {}
 def checkPermission(root):
-	global total_num
-	total_num += 1
+	#	global total_num
+	#	total_num += 1
 	
 	cmd = 'icacls ' + root
 	# 用于获得windows下文件的权限信息
