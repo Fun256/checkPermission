@@ -39,7 +39,8 @@ get_path_permission = {}
 def checkPermission(root):
 	#	global total_num
 	#	total_num += 1
-	
+	if ' ' in root:
+		root = "\"" + root + "\""	
 	cmd = 'icacls ' + root
 	# 用于获得windows下文件的权限信息
 	temp = os.popen(cmd)
